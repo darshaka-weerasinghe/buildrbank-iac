@@ -1,0 +1,17 @@
+# Kept out of the Vercel upload. Only app/, vendor/, scripts/, main.py and
+# requirements.txt are needed to run the app.
+.env
+.env.*
+.venv/
+data/
+docs/
+infra/
+tests/
+.github/
+Dockerfile
+.dockerignore
+__pycache__/
+*.pyc
+*.pem
+*.tfstate
+*.tfstate.backup
