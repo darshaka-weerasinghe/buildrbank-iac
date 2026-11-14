@@ -51,6 +51,14 @@ import buildrbank.config as bb_config
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = PROJECT_ROOT / "data"          # the conversation memory file lives here
 
+# On Vercel the project folder is read-only; /tmp is the only place a function
+# may write. Vercel sets VERCEL=1 itself, so nothing needs configuring. BB_DATA_DIR
+# overrides both, for anywhere else that needs the file somewhere particular.
+if os.environ.get("BB_DATA_DIR"):
+    DATA_DIR = Path(os.environ["BB_DATA_DIR"])
+elif os.environ.get("VERCEL"):
+    DATA_DIR = Path("/tmp/buildrbank-data")
+
 load_dotenv(PROJECT_ROOT / ".env")
 
 

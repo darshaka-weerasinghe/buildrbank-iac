@@ -19,3 +19,5 @@ infra/.terraform/
 
 # Written by Terraform on every apply.
 infra/inventory.ini
+.vercel
+.env*
